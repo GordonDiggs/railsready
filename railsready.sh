@@ -36,15 +36,17 @@ echo "Installing git..."
 sudo apt-get -y install git-core >> install.log
 echo "done..."
 
+# Install RVM
+echo "Installing RVM"
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+echo "[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session." >> ~/.bash_profile
+source ~/.rvm/scripts/rvm
+echo "done..."
+
 # Install Ruby
-echo "Downloading Ruby 1.9.2p136"
-cd src && wget ftp://ftp.ruby-lang.org//pub/ruby/1.9/ruby-1.9.2-p136.tar.gz
-echo "done..."
-echo "Extracting Ruby 1.9.2p136"
-tar -xzf ruby-1.9.2-p136.tar.gz >> ~/railsready/install.log
-echo "done..."
-echo "Building Ruby 1.9.2p136 (this may take awhile and build output may appear on screen)..."
-cd  ruby-1.9.2-p136 && ./configure >> ~/railsready/install.log && make >> ~/railsready/install.log && sudo make install >> ~/railsready/install.log
+echo "Downloading and Install Ruby 1.9.2"
+rvm install 1.9.2
+rvm --default 1.9.2
 echo "done..."
 
 # Reload bash
@@ -53,7 +55,7 @@ source ~/.bashrc
 echo "done..."
 
 echo "Installing Bundler, Passenger and Rails.."
-sudo gem install bundler passenger rails --no-ri --no-rdoc >> ~/railsready/install.log
+gem install bundler passenger rails --no-ri --no-rdoc >> ~/railsready/install.log
 echo "done..."
 
 echo "Installation is complete!"
