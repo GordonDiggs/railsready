@@ -4,13 +4,14 @@
 ##Run this on a fresh install. Tested on Ubuntu server 10.04 lts
 
 ##To run:
-  * sudo apt-get -y install curl && curl https://github.com/joshfng/railsready/raw/master/railsready.sh >> railsready.sh && chmod a+x railsready.sh && ./railsready.sh
+  * sudo apt-get -y install curl && curl https://github.com/GordonDiggs/railsready/raw/master/railsready.sh >> railsready.sh && chmod a+x railsready.sh && ./railsready.sh
   * If you want to watch the magic happen run "tail -f ~/railsready/install.log"
 
 ##What this gives you:
 
   * An updated system
-  * Ruby 1.9.2p136
+  * RVM
+  * Ruby 1.9.2
   * Imagemagick
   * libs needed to run Rails (sqlite, mysql, etc)
   * Bundler, Passenger, and Rails gems
