@@ -1,5 +1,6 @@
 #!/bin/bash
 # created by Josh Frye | joshfng@gmail.com
+# rvm installation by Gordon Diggs | gordon@diggs.me
 
 shopt -s extglob
 set -e
@@ -38,15 +39,15 @@ echo "done..."
 
 # Install RVM
 echo "Installing RVM"
-bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
-echo "[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session." >> ~/.bash_profile
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head ) >> install.log
+echo "[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session." >> ~/.bashrc
 source ~/.rvm/scripts/rvm
 echo "done..."
 
 # Install Ruby
 echo "Downloading and Install Ruby 1.9.2"
-rvm install 1.9.2
-rvm --default 1.9.2
+rvm install 1.9.2 >> install.log
+rvm --default 1.9.2 >> install.log
 echo "done..."
 
 # Reload bash
